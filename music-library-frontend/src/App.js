@@ -19,6 +19,13 @@ function App() {
     setSongs(response.data);
   }
 
+  async function createSong(newSong){
+    let response = axios.post('https://localhost:7160/api/Songs', newSong);
+    if((await response).status === 201){
+      await getAllSongs();
+    }
+  }
+
  async function searchBy(by){
     let tempSongs = songs.filter((el) => {
       if (el.title.toLowerCase().includes(by.search.toLowerCase()) || el.artist.toLowerCase().includes(by.search.toLowerCase()) || el.album.toLowerCase().includes(by.search.toLowerCase()) || el.releaseDate.toLowerCase().includes(by.search.toLowerCase()) || el.genre.toLowerCase().includes(by.search.toLowerCase())){
@@ -36,7 +43,7 @@ function App() {
 
   return (
     <div>
-      <Header/>
+      <Header addNewEntryProperty ={createSong}/>
       <SearchBar searchByS ={searchBy}/>
       <MusicTable songs ={songs}/>
     </div>
