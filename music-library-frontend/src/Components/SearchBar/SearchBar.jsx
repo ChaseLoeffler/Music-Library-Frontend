@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './SearchBar.css'
 
 const Search = (props) => {
     const [search, setSearch] = useState('');
@@ -13,9 +13,9 @@ const Search = (props) => {
     }
 
     return (
-        <div>
+        <div className='bar-centered'>
             <form onSubmit={handleSumbit}>
-                <input type='text' value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Search'/>
+                <input type='text' value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Search Songs'/>
             </form>
         </div>
     );

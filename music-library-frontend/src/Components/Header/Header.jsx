@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './Header.css'
 
 const Header = (props) => {
 
@@ -25,12 +25,12 @@ const Header = (props) => {
     return (
         <div>
             <div>
-                <header>Music Library</header>
+                <h1 className='text-center'>Music Library</h1>
             </div>
             <div>
-                <h3>Add a Song</h3>
+                <h3 className='text-center'>Add a Song</h3>
                 <div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className='form-grid'>
                         <label>Title</label>
                         <input type='text' value={title} onChange={(event)=> setTitle(event.target.value)}/>
                         <label>Artist</label>

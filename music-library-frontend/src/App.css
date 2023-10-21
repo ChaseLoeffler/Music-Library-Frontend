@@ -1,0 +1,15 @@
+.border-box {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+
+.display {
+    display: flex;
+    justify-content: center;
+}
+
+.color {
+    background-color: cyan;
+}

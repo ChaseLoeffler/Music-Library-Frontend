@@ -3,7 +3,7 @@ import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Header from './Components/Header/Header';
-
+import './App.css';
 
 function App() {
 
@@ -51,10 +51,16 @@ function App() {
 
 
   return (
-    <div>
+    <div className='color'>
+      <div className='display'>
       <Header addNewEntryProperty ={createSong}/>
+      </div>
+      <div>
       <SearchBar searchByS ={searchBy}/>
+      </div>
+      <div className='border-box display'>
       <MusicTable songs ={songs} deleteSong={deleteSong}/>
+      </div>
     </div>
   );
 }

@@ -3,9 +3,8 @@ import moment from 'moment';
 
 const MusicTable = (props) => {
     return (
-        <div>
-            <table>
-                <thead className='table'>
+            <table className='table table-bordered table-dark'>
+                <thead >
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
@@ -30,7 +29,6 @@ const MusicTable = (props) => {
                     })}
                 </tbody>
             </table>
-        </div>
     );
 }
  
