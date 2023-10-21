@@ -20,10 +20,19 @@ function App() {
   }
 
   async function createSong(newSong){
-    let response = axios.post('https://localhost:7160/api/Songs', newSong);
-    if((await response).status === 201){
+    const response = await axios.post('https://localhost:7160/api/Songs', newSong);
+    if(response.status === 201){
       await getAllSongs();
     }
+  }
+
+  async function deleteSong(id){
+    const response = await axios.delete(`https://localhost:7160/api/Songs/${id}`, {
+      method: 'DELETE'
+    })
+      if(response.status === 200) {
+         getAllSongs();
+      }
   }
 
  async function searchBy(by){
@@ -45,7 +54,7 @@ function App() {
     <div>
       <Header addNewEntryProperty ={createSong}/>
       <SearchBar searchByS ={searchBy}/>
-      <MusicTable songs ={songs}/>
+      <MusicTable songs ={songs} deleteSong={deleteSong}/>
     </div>
   );
 }

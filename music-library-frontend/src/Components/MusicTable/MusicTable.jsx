@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 const MusicTable = (props) => {
-
     return (
         <div>
             <table>
@@ -24,7 +23,7 @@ const MusicTable = (props) => {
                                 <td>{song.album}</td>
                                 <td>{moment(song.releaseDate).format('MM/DD/YYYY')}</td>
                                 <td>{song.genre}</td>
-                                <td><button>Delete Song</button></td>
+                                <td><button onClick={() => props.deleteSong(song.id)}>Delete Song</button></td>
                                 <td><button>Edit song</button></td>
                             </tr>
                         );
