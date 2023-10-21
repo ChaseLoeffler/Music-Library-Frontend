@@ -19,14 +19,25 @@ function App() {
     setSongs(response.data);
   }
 
-  
+ async function searchBy(by){
+    let tempSongs = songs.filter((el) => {
+      if (el.title.toLowerCase().includes(by.search.toLowerCase()) || el.artist.toLowerCase().includes(by.search.toLowerCase()) || el.album.toLowerCase().includes(by.search.toLowerCase()) || el.releaseDate.toLowerCase().includes(by.search.toLowerCase()) || el.genre.toLowerCase().includes(by.search.toLowerCase())){
+        return true;
+      }
+    });
+    console.log(tempSongs);
+    if(tempSongs.length === 0){
+      getAllSongs();
+    }
+    setSongs(tempSongs);
+  }
 
 
 
   return (
     <div>
       <Header/>
-      <SearchBar/>
+      <SearchBar searchByS ={searchBy}/>
       <MusicTable songs ={songs}/>
     </div>
   );
